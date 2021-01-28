@@ -24,10 +24,10 @@ public class PrinterWindowTaskAssigner {
     private final List<User32.HWND> topWindows = new ArrayList<>();
 
     public boolean test() {
-        if (!print("asdf", false, "t�h�n printteri", 5, 4)) {
+        if (!print("asdf", false, "<PRINTER>", 5, 4)) {
             return false;
         }
-        return print("asdf", false, "t�h�n printteri", 5, 0);
+        return print("asdf", false, "<PRINTER>", 5, 0);
 
     }
 

@@ -26,19 +26,22 @@ public class Runner {
 
     public static boolean run() {
 
-//        System.setProperty("webdriver.chrome.driver", "U:\\Tiedostot\\NetBeansProjects\\formautomaton\\chromedriver.exe");
-        System.setProperty("webdriver.chrome.driver", "C:\\Omat\\Ohjelmat\\formautomaton\\chromedriver.exe");
+        // replace <PATH> with the path to chromedriver.exe, e.g. C:\\myfolder\\chromedriver.exe
+        System.setProperty("webdriver.chrome.driver", "<PATH>");
         WebDriver driver = new ChromeDriver();
         WebDriverWait wait = new WebDriverWait(driver, 30);
         driver.manage().window().maximize();
 
-        driver.get("t�h�n nettisivu");
+        // replace <WEB_ADDRESS> with the web address of the app
+        driver.get("<WEB_ADDRESS>");
 
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.name("ctl00$mainContents$LoginConsole$ctl03")));
-        element.sendKeys("t�h�n k�ytt�j�tunnus");
+        // replace <USERNAME> with the username
+        element.sendKeys("<USERNAME>");
 
         element = wait.until(ExpectedConditions.elementToBeClickable(By.name("ctl00$mainContents$LoginConsole$ctl05")));
-        element.sendKeys("t�h�n salasana");
+        // replace <PASSWORD> with the password
+        element.sendKeys("<PASSWORD>");
 
         element = wait.until(ExpectedConditions.elementToBeClickable(By.name("ctl00$mainContents$LoginConsole$LoginBtn")));
         element.click();
@@ -141,7 +144,8 @@ public class Runner {
                 }
 
                 PrinterWindowTaskAssigner pwta = new PrinterWindowTaskAssigner();
-                return pwta.print(title, true, "t�h�n printteri", 5, 4);
+                // replace <PRINTER> with the name of the printer and tweak other parameters if necessary
+                return pwta.print(title, true, "<PRINTER>", 5, 4);
             }
         }
         return false;
